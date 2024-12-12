@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
-    <h1>{{ title }}</h1>
-    <p>{{ description }}</p>
+  <div class="bg-gray-100 border border-gray-300 p-6 rounded-lg shadow-lg">
+    <h1 class="text-xl font-bold text-gray-800">{{ title }}</h1>
+    <p class="text-gray-600 mt-2">{{ description }}</p>
   </div>
 </template>
 
@@ -10,21 +10,12 @@ export default {
   props: {
     title: {
       type: String,
-      default: 'Welcome to Nuxt.js',
+      default: 'Welcome to Vue.js with Tailwind',
     },
     description: {
       type: String,
-      default: 'This is a simple container component in Nuxt.',
+      default: 'This is a simple container component styled with Tailwind CSS.',
     },
   },
 };
 </script>
-
-<style scoped>
-.container {
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-}
-</style>

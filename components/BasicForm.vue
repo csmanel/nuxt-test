@@ -10,7 +10,7 @@
           v-model="form.name"
           type="text"
           id="name"
-          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+          class="mt-1 block w-full rounded-md"
           placeholder="Enter your name"
           required
         />
@@ -23,7 +23,7 @@
           v-model="form.email"
           type="email"
           id="email"
-          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+          class="mt-1 block w-full rounded-md"
           placeholder="Enter your email"
           required
         />
@@ -36,7 +36,7 @@
           v-model="form.message"
           id="message"
           rows="4"
-          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+          class="mt-1 block w-full rounded-md"
           placeholder="Enter your message"
         ></textarea>
       </div>

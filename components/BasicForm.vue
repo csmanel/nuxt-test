@@ -50,7 +50,8 @@
   </div>
 </template>
 
-<script>
+<!-- no ts -->
+<!-- <script>
 export default {
   data() {
     return {
@@ -67,4 +68,32 @@ export default {
     },
   },
 };
+</script> -->
+
+<!-- ts -->
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  data() {
+    return {
+      form: {
+        name: '',
+        email: '',
+        message: '',
+      } as FormData,
+    };
+  },
+  methods: {
+    handleSubmit(): void {
+      console.log('Form submitted:', this.form);
+    },
+  },
+});
+
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
 </script>

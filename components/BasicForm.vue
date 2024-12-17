@@ -1,99 +1,33 @@
-<template>
-  <div class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md">
-    <h2 class="text-2xl font-semibold mb-4">Basic Form</h2>
-    <form @submit.prevent="handleSubmit">
-      <div class="mb-4">
-        <label for="name" class="block text-sm font-medium text-gray-700"
-          >Name</label
-        >
-        <input
-          v-model="form.name"
-          type="text"
-          id="name"
-          class="mt-1 block w-full rounded-md"
-          placeholder="Enter your name"
-          required
-        />
-      </div>
-      <div class="mb-4">
-        <label for="email" class="block text-sm font-medium text-gray-700"
-          >Email</label
-        >
-        <input
-          v-model="form.email"
-          type="email"
-          id="email"
-          class="mt-1 block w-full rounded-md"
-          placeholder="Enter your email"
-          required
-        />
-      </div>
-      <div class="mb-4">
-        <label for="message" class="block text-sm font-medium text-gray-700"
-          >Message</label
-        >
-        <textarea
-          v-model="form.message"
-          id="message"
-          rows="4"
-          class="mt-1 block w-full rounded-md"
-          placeholder="Enter your message"
-        ></textarea>
-      </div>
-      <button
-        type="submit"
-        class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700"
-      >
-        Submit
-      </button>
-    </form>
-  </div>
-</template>
+<script setup lang="ts">
+import { reactive } from 'vue';
+import { object, string, type InferType } from 'yup';
+import type { FormSubmitEvent } from '#ui/types';
 
-<!-- no ts -->
-<!-- <script>
-export default {
-  data() {
-    return {
-      form: {
-        name: '',
-        email: '',
-        message: '',
-      },
-    };
-  },
-  methods: {
-    handleSubmit() {
-      console.log('Form submitted:', this.form);
-    },
-  },
-};
-</script> -->
-
-<!-- ts -->
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  data() {
-    return {
-      form: {
-        name: '',
-        email: '',
-        message: '',
-      } as FormData,
-    };
-  },
-  methods: {
-    handleSubmit(): void {
-      console.log('Form submitted:', this.form);
-    },
-  },
+const schema = object({
+  email: string().email('Invalid email').required('Required'),
+  password: string()
+    .min(8, 'Must be at least 8 characters')
+    .required('Required'),
 });
 
-interface FormData {
-  name: string;
-  email: string;
-  message: string;
+type Schema = InferType<typeof schema>;
+
+const state = reactive({ email: undefined, password: undefined });
+
+async function onSubmit(event: FormSubmitEvent<Schema>) {
+  console.log(event.data);
 }
 </script>
+
+<template>
+  <UForm :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">
+    <UFormGroup lablel="Email" name="email">
+      <UInput v-model="state.email" />
+    </UFormGroup>
+    <UFormGroup label="Password" name="password">
+      <UInput v-model="state.password" type="password" />
+    </UFormGroup>
+
+    <UButton type="submit"> Submit </UButton>
+  </UForm>
+</template>

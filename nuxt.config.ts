@@ -1,6 +1,5 @@
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxt/ui'],
-  alias: {
-    '#ui': './src/ui',
-  },
-});
+  devtools: { enabled: true },
+  modules: ["@nuxt/ui"]
+})

@@ -16,6 +16,7 @@
     "vue": "latest"
   },
   "dependencies": {
+    "vuelidate": "^0.7.7",
     "yup": "^1.6.1"
   }
 }

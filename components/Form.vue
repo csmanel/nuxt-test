@@ -79,40 +79,44 @@ async function onSubmit(event: FormSubmitEvent<any>) {
 </template> -->
 
 <script setup lang="ts">
-import type { Form, FormSubmitEvent } from '#ui/types';
+import type { FormError, FormErrorEvent, FormSubmitEvent } from '#ui/types';
 
 interface Schema {
-  email?: string;
-  password?: string;
+  email?: undefined;
+  password?: undefined;
 }
 
-const state = reactive<Schema>({
+const state = reactive({
   email: undefined,
   password: undefined,
 });
 
-const form = ref<Form<Schema>>();
+const validate = (state: any): FormError[] => {
+  const errors = [];
+  if (!state.email) errors.push({ path: 'email', message: 'Required' });
+  if (!state.password) errors.push({ path: 'password', message: 'Required' });
+  return errors;
+};
 
-async function onSubmit(event: FormSubmitEvent<Schema>) {
-  form.value!.clear();
-  try {
-    const response = await $fetch('...');
-    // ...
-  } catch (err) {
-    if (err.statusCode === 422) {
-      form.value!.setErrors(
-        err.data.errors.map((err) => ({
-          message: err.message,
-          path: err.path,
-        }))
-      );
-    }
-  }
+async function onSubmit(event: FormSubmitEvent<any>) {
+  console.log(event.data);
+}
+
+async function onError(event: FormErrorEvent) {
+  const element = document.getElementById(event.errors[0].id);
+  element?.focus();
+  element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 </script>
 
 <template>
-  <UForm ref="form" :state="state" @submit="onSubmit">
+  <UForm
+    :validate="validate"
+    :state="state"
+    class="space-y-4"
+    @submit="onSubmit"
+    @error="onError"
+  >
     <UFormGroup label="Email" name="email">
       <UInput v-model="state.email" />
     </UFormGroup>

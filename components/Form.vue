@@ -128,3 +128,20 @@ async function onError(event: FormErrorEvent) {
     <UButton type="submit"> Submit </UButton>
   </UForm>
 </template>
+
+<!-- <template>
+ Use the FormGroup component around an Input, Textarea, Select or a SelectMenu with a label. The <label> will automatically be associated with the form element so it gets focused on click.
+
+  <UFormGroup label="Email">
+    <UInput placeholder="you@example.com" icon="i-heroicons-envelope" />
+  </UFormGroup>
+</template>
+
+Use the required prop to indicate that the form element is required.
+<template>
+  <UFormGroup label="Email" required>
+    <UInput placeholder="you@example.com" icon="i-heroicons-envelope" />
+  </UFormGroup>
+</template>
+
+ -->

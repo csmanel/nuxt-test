@@ -4,7 +4,9 @@
   <UContainer>
     <UCard class="mt-10">
       <template #header>
+        <ModelTest />
         <DropdownItems />
+
         <div class="flex justify-between">
           <h1>Welcome to Nuxt UI Starter</h1>
           <ColorScheme

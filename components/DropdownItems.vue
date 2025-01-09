@@ -18,6 +18,6 @@ const items = [
 </script>
 
 <template>
-  <UDropdown :items="[[{ label: 'Edit', shortcuts: ['E'] }]]" />
+  <!-- <UDropdown :items="[[{ label: 'Edit', shortcuts: ['E'] }]]" /> -->
   <UAccordion color="primary" :items="items" />
 </template>

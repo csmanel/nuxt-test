@@ -4,7 +4,7 @@
   <UContainer>
     <UCard class="mt-10">
       <template #header>
-        <ModelTest />
+        <ModalTest />
         <DropdownItems />
 
         <div class="flex justify-between">
@@ -19,12 +19,6 @@
           <Form />
         </div>
       </template>
-      <UButton
-        icon="i-heroicons-book-open"
-        to="https://ui.nuxt.com"
-        target="_blank"
-        >Open Nuxt UI Documentation</UButton
-      >
     </UCard>
   </UContainer>
 </template>

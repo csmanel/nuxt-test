@@ -4,11 +4,11 @@
   <UContainer>
     <UCard class="mt-10">
       <template #header>
-        <ModalTest />
+        <h1>m a n e l</h1>
+        <!-- <ModalTest /> -->
         <DropdownItems />
 
         <div class="flex justify-between">
-          <h1>Welcome to Nuxt UI Starter</h1>
           <ColorScheme
             ><USelect
               v-model="$colorMode.preference"

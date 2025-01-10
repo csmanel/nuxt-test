@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const items = [
   {
-    label: 'Getting Started',
+    label: 'menu',
     icon: 'i-heroicons-information-circle',
     defaultOpen: false,
     content:

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MenuList from './components/MenuList.vue';
+import MenuList from './components/MenuItems/MenuList.vue';
 </script>
 
 <template>

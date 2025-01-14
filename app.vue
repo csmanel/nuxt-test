@@ -1,4 +1,6 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import MenuList from './components/MenuList.vue';
+</script>
 
 <template>
   <UContainer>
@@ -16,6 +18,7 @@
         <DropdownItems />
         <!-- <ModalTest /> -->
         <!-- <Form /> -->
+        <MenuList />
       </div>
     </UCard>
   </UContainer>
